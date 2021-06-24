@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+	<form-beans>
+		<!-- ALL FORMS BEAN START FROM HERE  -->
+		<form-bean name="inventoryLoginForm" type="com.indianmesh.inventory.login.LoginForm" />	
+		<form-bean name="inventoryKitchenManagementForm" type="com.indianmesh.inventory.management.KitchenManagementForm" />
+		<form-bean name="inventoryBarManagementForm" type="com.indianmesh.inventory.management.BarManagementForm" />	
+		<form-bean name="inventoryKitchenVendorForm" type="com.indianmesh.inventory.kitchen.vendor.VendorForm" />
+		<form-bean name="inventoryKitchenProductForm" type="com.indianmesh.inventory.kitchen.product.ProductForm" />		
+		<form-bean name="inventoryKitchenInventoryIngredientProductForm" type="com.indianmesh.inventory.kitchen.inventory.IngredientProductForm" />
+		<form-bean name="inventoryKitchenInventoryProductForm" type="com.indianmesh.inventory.kitchen.inventory.ProductForm" />	
+		<form-bean name="inventoryKitchenRequirementForm" type="com.indianmesh.inventory.kitchen.stock.ProductForm" />			
+		<form-bean name="inventoryKitchenConsumptionForm" type="com.indianmesh.inventory.kitchen.stock.ProductForm" />
+		<form-bean name="inventoryKitchenReportForm" type="com.indianmesh.inventory.kitchen.stock.ProductForm" />		
+		<form-bean name="inventoryKitchenStockReportForm" type="com.indianmesh.inventory.kitchen.stock.ProductForm" />	
+		<form-bean name="inventoryBarVendorForm" type="com.indianmesh.inventory.bar.vendor.VendorAction" />
+		<form-bean name="inventoryBarProductForm" type="com.indianmesh.inventory.bar.product.ProductForm" />
+		<form-bean name="inventoryBarInventoryProductForm" type="com.indianmesh.inventory.bar.inventory.ProductForm" />
+		<form-bean name="inventoryBarRequirementForm" type="com.indianmesh.inventory.bar.requirement.RequirementFormVO" />
+		<form-bean name="inventoryBarConsumptionForm" type="com.indianmesh.inventory.bar.consumption.ConsumptionForm" />
+		<form-bean name="inventoryBarReportForm" type="com.indianmesh.inventory.bar.report.ReportForm" />
+									
+    </form-beans>
+
+<!--END ALL FORMS  -->
+
+	<action-mappings>
+	
+		<action path="/inventoryHome" name="inventoryLoginForm" parameter="methodName" type="com.indianmesh.inventory.login.InventoryAction" validate="false" scope="request" input="login">			
+			<forward name="login" path="/WEB-INF/jsp/login/login.jsp" />		                          
+ 			  					 	
+		</action>
+		
+	    <action path="/inventoryLogin" name="inventoryLoginForm" parameter="methodName" type="com.indianmesh.inventory.login.InventoryLoginAction" validate="false" scope="request" input="login">			
+			<forward name="login" path="/WEB-INF/jsp/login/login.jsp" />		                          
+ 			<forward name="home" path="/WEB-INF/jsp/login/login.jsp" />  					 	
+		</action>
+		
+		<action path="/inventoryKitchenManagement" name="inventoryKitchenManagementForm" parameter="methodName" type="com.indianmesh.inventory.management.KitchenManagementAction" validate="false" scope="request">						
+			<forward name="kitchenManagementStore" path="/WEB-INF/jsp/common/kitchen-store.jsp" />
+			<forward name="kitchenManagement" path="/WEB-INF/jsp/common/kitchen-Management.jsp" />			
+ 			  					 	
+		</action>
+		
+		<action path="/inventoryBarManagement" name="inventoryBarManagementForm" parameter="methodName" type="com.indianmesh.inventory.management.BarManagementAction" validate="false" scope="request">						
+			<forward name="barManagementStore" path="/WEB-INF/jsp/common/bar-Store.jsp" />
+			<forward name="barManagement" path="/WEB-INF/jsp/common/bar-Management.jsp" /> 			         			
+ 			  					 	
+		</action>
+
+		<action path="/kitchenVendor" name="inventoryKitchenVendorForm" parameter="methodName" type="com.indianmesh.inventory.kitchen.vendor.VendorAction" validate="false" scope="request" input="addKitchenVendor">						
+			<forward name="indexKitchenVendor" path="/WEB-INF/jsp/kitchen/kitchen-vendor-list.jsp" />
+			<forward name="addKitchenVendor" path="/WEB-INF/jsp/kitchen/kitchen-vendor-add.jsp" />			
+			<forward name="editKitchenVendor" path="/WEB-INF/jsp/kitchen/kitchen-vendor-edit.jsp" />
+			<forward name="addStockKitchenVendor" path="/WEB-INF/jsp/kitchen/kitchen-vendor-add-stock.jsp" />
+			<forward name="viewKitchenVendor" path="/WEB-INF/jsp/kitchen/kitchen-vendor-view.jsp" />	
+			<forward name="supplyKitchenVendor" path="/WEB-INF/jsp/kitchen/kitchen-vendor-supply.jsp" />									 											 			
+ 			<forward name="viewloginInfo" path="viewloginInfo" />
+ 			  					 	
+		</action>
+		
+		<action path="/kitchenProduct" name="inventoryKitchenProductForm" parameter="methodName" type="com.indianmesh.inventory.kitchen.product.ProductAction" validate="false" scope="request" input="addKitchenProduct">						
+			 <forward name="indexKitchenProduct" path="/WEB-INF/jsp/kitchen/kitchen-product-list.jsp" />						
+			 <forward name="addKitchenProduct" path="/WEB-INF/jsp/kitchen/kitchen-product-add.jsp" />
+			 <forward name="editKitchenProduct" path="/WEB-INF/jsp/kitchen/kitchen-product-edit.jsp" />			 
+ 			 <forward name="viewloginInfo" path="viewloginInfo" />
+ 			  					 	
+		</action>
+		
+		<action path="/kitchenInventoryProduct" name="inventoryKitchenInventoryProductForm" parameter="methodName" type="com.indianmesh.inventory.kitchen.inventory.ProductAction" validate="false" scope="request" input="addKitchenInventoryProduct">						
+			 <forward name="indexKitchenInventoryProduct" path="/WEB-INF/jsp/kitchen/kitchen-inventory-list.jsp" />
+			 <forward name="addKitchenInventoryProduct" path="/WEB-INF/jsp/kitchen/kitchen-inventory-add.jsp" />
+			 <forward name="editKitchenInventoryProduct" path="/WEB-INF/jsp/kitchen/kitchen-inventory-edit.jsp" />
+			 <forward name="viewKitchenInventoryProduct" path="/WEB-INF/jsp/kitchen/kitchen-inventory-view.jsp" />				 				 			 			
+ 			 <forward name="viewloginInfo" path="viewloginInfo" />
+ 			  					 	
+		</action>
+		
+		<action path="/kitchenRequirement" name="inventoryKitchenRequirementForm" parameter="methodName" type="com.indianmesh.inventory.kitchen.requirement.RequirementAction" validate="false" scope="request" input="kitchenRequirementList">						
+			<forward name="kitchenRequirementList" path="/WEB-INF/jsp/kitchen/kitchen-product-Requirement.jsp" />						 			
+ 			<forward name="viewloginInfo" path="viewloginInfo" />
+ 			  					 	
+		</action> 
+		
+		<action path="/kitchenConsumption" name="inventoryKitchenConsumptionForm" parameter="methodName" type="com.indianmesh.inventory.kitchen.consumption.ConsumptionAction" validate="false" scope="request" input="kitchenConsumptionList">						
+			<forward name="kitchenConsumptionList" path="/WEB-INF/jsp/kitchen/kitchen-product-Consumption.jsp" /> 						 		
+ 			<forward name="viewloginInfo" path="viewloginInfo" />
+ 			  					 	
+		</action> 
+		
+		<action path="/kitchenReport" name="inventoryKitchenReportForm" parameter="methodName" type="com.indianmesh.inventory.kitchen.report.ReportAction" validate="false" scope="request" input="getIndexkitchenReport">						
+ 			<forward name="kitchenReportList" path="/WEB-INF/jsp/kitchen/kitchen-product-report.jsp" /> 	 									 			 			
+ 			<forward name="viewloginInfo" path="viewloginInfo" />
+ 			  					 	
+		</action> 
+		
+		<action path="/kitchenStoreReport" name="inventoryKitchenReportForm" parameter="methodName" type="com.indianmesh.inventory.kitchen.report.ReportAction" validate="false" scope="request" input="kitchenReportKitchenRequirementList">						
+ 			<forward name="kitchenReportKitchenRequirementList" path="/WEB-INF/jsp/kitchen/kitchen-store-product-report.jsp" /> 	 						 			 			 						 			 			
+ 			<forward name="viewloginInfo" path="viewloginInfo" />
+ 			  					 	
+		</action>
+		
+		<action path="/kitchenStoreRequirement" name="inventoryKitchenRequirementForm" parameter="methodName" type="com.indianmesh.inventory.kitchen.requirement.RequirementAction" validate="false" scope="request" input="kitchenStoreKitchenRequirementList">						
+ 			<forward name="kitchenStoreKitchenRequirementList" path="/WEB-INF/jsp/kitchen/kitchen-store-product-Requirement.jsp" /> 													 								 			 			
+ 			<forward name="viewloginInfo" path="viewloginInfo" />
+ 			  					 	
+		</action>  	
+		
+		<action path="/barVendor" name="inventoryBarVendorForm" parameter="methodName" type="com.indianmesh.inventory.bar.vendor.VendorAction" validate="false" scope="request" input="addBarVendor">						
+			<forward name="indexBarVendor" path="/WEB-INF/jsp/bar/bar-vendor.jsp" /> 			
+ 			<forward name="addBarVendor" path="/WEB-INF/jsp/bar/bar-add-vendor.jsp" />
+ 			<forward name="editBarVendor" path="/WEB-INF/jsp/bar/bar-edit-vendor.jsp" />
+ 			<forward name="viewBarVendor" path="/WEB-INF/jsp/bar/bar-view-vendor.jsp" />
+ 			<forward name="viewloginInfo" path="viewloginInfo" />
+ 			
+ 		</action>	
+ 		
+ 		<action path="/barProduct" name="inventoryBarProductForm" parameter="methodName" type="com.indianmesh.inventory.bar.product.ProductAction" validate="false" scope="request" input="addBarProduct"> 			
+ 			<forward name="indexBarProduct" path="/WEB-INF/jsp/bar/bar-product-list.jsp" /> 			
+ 			<forward name="addBarProduct" path="/WEB-INF/jsp/bar/bar-store-add-product.jsp" />
+ 			<forward name="editBarProduct" path="/WEB-INF/jsp/bar/bar-edit-product.jsp" />
+ 			<forward name="viewloginInfo" path="viewloginInfo" />
+ 			
+ 		</action>	
+ 		
+ 		<action path="/barInventoryProduct" name="inventoryBarInventoryProductForm" parameter="methodName" type="com.indianmesh.inventory.bar.inventory.ProductAction" validate="false" scope="request" input="indexBarInventory">
+			<forward name="indexBarInventory" path="/WEB-INF/jsp/bar/bar-inventory.jsp" /> 			
+ 			<forward name="addBarInventory" path="/WEB-INF/jsp/bar/bar-inventory-add.jsp" />
+ 			<forward name="editBarInventory" path="/WEB-INF/jsp/bar/inventory-edit-prod.jsp" />
+ 			<forward name="viewBarInventory" path="/WEB-INF/jsp/bar/inventory-view.jsp" />
+ 			<forward name="viewloginInfo" path="viewloginInfo" />
+ 			
+ 		</action>	
+ 		
+ 		<action path="/barReport" name="inventoryBarReportForm" parameter="methodName" type="com.indianmesh.inventory.bar.report.ReportAction" validate="false" scope="request" input="indexBarReport">
+			<forward name="indexBarReport" path="/WEB-INF/jsp/bar/bar-reports.jsp" />
+			<forward name="viewloginInfo" path="viewloginInfo" />
+			
+		</action>	
+		
+		<action path="/barRequirement" name="inventoryBarRequirementForm" parameter="methodName" type="com.indianmesh.inventory.bar.requirement.RequirementAction" validate="false" scope="request" input="indexBarRequirement">
+			<forward name="indexBarRequirement" path="/WEB-INF/jsp/bar/bar-requirement.jsp" />
+			<forward name="viewloginInfo" path="viewloginInfo" />
+			
+		</action>
+		
+		<action path="/barConsumption" name="inventoryBarConsumptionForm" parameter="methodName" type="com.indianmesh.inventory.bar.consumption.ConsumptionAction" validate="false" scope="request" input="indexBarConsumption">
+			<forward name="indexBarConsumption" path="/WEB-INF/jsp/bar/bar-Consumption.jsp" />	
+			<forward name="viewloginInfo" path="viewloginInfo" />
+			
+		</action>
+		
+		<action path="/barStoreReport" name="inventoryBarReportForm" parameter="methodName" type="com.indianmesh.inventory.bar.report.ReportAction" validate="false" scope="request" input="indexBarStoreBarReport">		 									 			 			
+ 			<forward name="indexBarStoreBarReport" path="/WEB-INF/jsp/bar/bar-store-bar-reports.jsp" /> 			
+ 			<forward name="viewloginInfo" path="viewloginInfo" />	
+ 					  					 	
+		</action>
+		
+		<action path="/barStoreRequirement" name="inventoryBarRequirementForm" parameter="methodName" type="com.indianmesh.inventory.bar.requirement.RequirementAction" validate="false" scope="request" input="indexBarStoreBarRequirement">		 									 			 			
+			<forward name="indexBarStoreBarRequirement" path="/WEB-INF/jsp/bar/bar-store-bar-requirement.jsp" /> 			
+ 			<forward name="viewloginInfo" path="viewloginInfo" />	
+ 					  					 	
+		</action>
+  
+    </action-mappings>
+    
+    <controller contentType="text/html;charset=UTF-8" debug="3" nocache="true" locale="true"  processorClass="com.indianmesh.inventory.utils.filter.RequestProcessor"></controller>
+	
+	<message-resources parameter="ApplicationResources"></message-resources>
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/StrutsMstTiles.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in> 
+	
+</struts-config>

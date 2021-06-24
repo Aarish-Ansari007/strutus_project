@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>  
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+                                   "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<!-- This is a Tiles definition file, which provides tiles definition for all the masters. -->
+
+<tiles-definitions>
+
+ 	<definition name="exceptionPage">
+	  		  <put name="title" value="Exception Page"/>    
+	  		  <put name="body" value="/WEB-INF/jsp/common/exceptionpage.jsp" />  
+	</definition>
+	 	
+	<!-- Login Area Module Added -->	
+	<definition name="indexPage" >
+	  		  <put name="title" value="PRIMES HOMES"/>    
+	  		  <put name="body" value="/WEB-INF/jsp/common/index.jsp" />  
+	</definition>
+	<definition name="homePage" >
+	  		  <put name="title" value="PRIMES HOMES"/>    
+	  		  <put name="body" value="/WEB-INF/jsp/common/index.jsp" />  
+	</definition>
+	
+	<!-- END -->
+		
+	<!-- definition name="viewMyPage" extends="siteLayout">
+	  		  <put name="title" value="Home Page"/>    
+	  		  <put name="body" value="/WEB-INF/jsp/login/home.jsp" />  
+	</definition--> 
+  	
+</tiles-definitions>
